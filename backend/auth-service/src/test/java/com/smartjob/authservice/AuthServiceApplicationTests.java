@@ -1,4 +1,4 @@
-package com.smartjob.auth_service;
+package com.smartjob.authservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
