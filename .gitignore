@@ -1,0 +1,36 @@
+backend/auth-service/.gradle
+backend/auth-service/build/
+!backend/auth-service/gradle/wrapper/gradle-wrapper.jar
+!backend/auth-service/**/src/main/**/build/
+!backend/auth-service/**/src/test/**/build/
+
+### STS ###
+backend/auth-service/.apt_generated
+backend/auth-service/.classpath
+backend/auth-service/.factorypath
+backend/auth-service/.project
+backend/auth-service/.settings
+backend/auth-service/.springBeans
+backend/auth-service/.sts4-cache
+backend/auth-service/bin/
+!backend/auth-service/**/src/main/**/bin/
+!backend/auth-service/**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+backend/auth-service/.idea
+backend/auth-service/*.iws
+backend/auth-service/*.iml
+backend/auth-service/*.ipr
+backend/auth-service/out/
+!backend/auth-service/**/src/main/**/out/
+!backend/auth-service/**/src/test/**/out/
+
+### NetBeans ###
+backend/auth-service/nbproject/private/
+backend/auth-service/nbbuild/
+backend/auth-service/dist/
+backend/auth-service/nbdist/
+backend/auth-service/.nb-gradle/
+
+### VS Code ###
+.vscode/
