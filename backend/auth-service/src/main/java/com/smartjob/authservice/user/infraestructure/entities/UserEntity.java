@@ -30,7 +30,7 @@ public class UserEntity  extends BaseEntity {
     private String email;
     private String password;
     @OneToMany(fetch = FetchType.LAZY,
-                mappedBy = "owner",
+                mappedBy = "userEntity",
                 cascade = CascadeType.ALL)
     private List<PhoneEntity> phones;
     private String token;

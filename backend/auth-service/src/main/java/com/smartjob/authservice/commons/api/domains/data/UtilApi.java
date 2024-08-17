@@ -23,8 +23,9 @@ public class UtilApi {
     public static final String FORMAT_DATE = "dd-MM-yyyy HH:mm a z";
 
     @Bean
-    public void UtilMyWeather() {
-        estaticMessageSource = messageSource;
+    public MessageSource UtilApi() {
+        estaticMessageSource = this.messageSource;
+        return estaticMessageSource;
     }
 
     ;
