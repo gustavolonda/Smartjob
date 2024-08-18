@@ -8,8 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,11 +28,17 @@ public class UserEntity  extends BaseEntity {
     private String email;
     private String password;
     @OneToMany(fetch = FetchType.LAZY,
-                mappedBy = "userEntity",
-                cascade = CascadeType.ALL)
+                mappedBy = "user",
+                cascade = CascadeType.MERGE)
     private List<PhoneEntity> phones;
     private String token;
     @Column(name = "last_login", columnDefinition = "TIMESTAMP")
     private Date lastLogin;
+
+    @PrePersist
+    public void lastLoginWhenSaveInstance() {
+        this.lastLogin = new Date();
+    }
+
 
 }
