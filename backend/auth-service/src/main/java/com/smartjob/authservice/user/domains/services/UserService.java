@@ -6,7 +6,9 @@ import com.smartjob.authservice.user.infraestructure.entities.UserEntity;
 import com.smartjob.authservice.user.infraestructure.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService extends EndPointServiceImpl<UserEntity, String> {
     public static final String TAG = UserService.class.getSimpleName();
 
