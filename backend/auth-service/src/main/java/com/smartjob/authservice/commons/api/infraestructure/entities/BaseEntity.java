@@ -27,5 +27,5 @@ public abstract  class BaseEntity {
     @Column(name = "modified" , columnDefinition = "TIMESTAMP")
     private Date modified;
 
-    private boolean isActive = Boolean.TRUE;
+    private boolean active = Boolean.TRUE;
 }
