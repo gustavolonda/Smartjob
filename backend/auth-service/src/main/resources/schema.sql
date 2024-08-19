@@ -1,0 +1,3 @@
+create table phones (id text not null, active boolean not null, created TIMESTAMP, modified TIMESTAMP, city_code varchar(255), country_code varchar(255), number varchar(255), user_id text not null, primary key (id));
+create table users (id text not null, active boolean not null, created TIMESTAMP, modified TIMESTAMP, email varchar(255), last_login TIMESTAMP, name varchar(255), password varchar(255), token varchar(255), primary key (id));
+alter table if exists phones add constraint FKmg6d77tgqfen7n1g763nvsqe3 foreign key (user_id) references users;
