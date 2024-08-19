@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-import com.smartjob.authservice.commons.api.domains.data.BaseException;
+import com.smartjob.authservice.commons.api.domains.exception.BaseException;
 import com.smartjob.authservice.commons.api.domains.data.IEndPointService;
 import org.springframework.stereotype.Service;
 
