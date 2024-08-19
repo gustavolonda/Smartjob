@@ -1,8 +1,8 @@
 package com.smartjob.authservice.user.applications.rest;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 
-import com.smartjob.authservice.AuthServiceApplication;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.smartjob.authservice.commons.api.domains.services.JwtService;
 import com.smartjob.authservice.commons.api.infraestructure.configs.JwtAuthFilter;
 import com.smartjob.authservice.commons.api.infraestructure.configs.SecurityConfiguration;
 import com.smartjob.authservice.phone.domains.data.PhoneDto;
@@ -11,43 +11,68 @@ import com.smartjob.authservice.user.domains.services.UserService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ComponentScan(basePackages = { "com.smartjob.authservice.*"})
-@EnableJpaRepositories(basePackages = {"com.smartjob.authservice.*"})
-@EntityScan(basePackages = { "com.smartjob.authservice.*"})
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class UserControllerTestRestTemplateTest {
+public class AuthenticationControllerTestRestTemplateTest {
     @Autowired
     private TestRestTemplate client;
-
-    @Autowired
+    @MockBean
     private MockMvc mvc;
+    @Autowired
+    private WebApplicationContext webApplicationContext;
     @LocalServerPort
     private int port = 8095;
-   // @Test
+    @MockBean
+    private JwtService jwtService;
+    @MockBean
+    private SecurityConfiguration securityConfiguration;
+    @MockBean
+    private JwtAuthFilter jwtAuthFilter;
+    @MockBean
+    private AuthenticationController authenticationController;
+    @MockBean
+    private AuthenticationManager authenticationManager;
+    @MockBean
+    private WebSecurityConfiguration webSecurityConfiguration;
+    @MockBean
+    private SecurityFilterChain securityFilterChain;
+    @MockBean
+    private UserService userService;
+    @BeforeEach
+    void setUp() {
+        mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        //This
+        Arrays.stream(webApplicationContext.getBeanDefinitionNames())
+                .map(name -> webApplicationContext.getBean(name).getClass().getName())
+                .sorted()
+                .forEach(System.out::println);
+
+    }
+  //@Test
     @Order(1)
     void whenRegisterUser_thenReturnOK() throws JsonProcessingException {
         PhoneDto phone = PhoneDto.builder()

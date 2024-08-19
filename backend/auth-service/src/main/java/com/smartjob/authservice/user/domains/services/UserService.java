@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.smartjob.authservice.commons.api.domains.data.UtilApi.getMessage;
+
 import static com.smartjob.authservice.user.domains.services.UserValidate.userFieldValidationError;
 
 @Log4j2
@@ -58,14 +58,14 @@ public class UserService extends EndPointServiceImpl<UserEntity, String>  implem
 
     @Override
     public BaseException validate(UserEntity entity) {
-        return userFieldValidationError(entity);
+        return userFieldValidationError(entity, this.utilApi);
     }
     @SneakyThrows
     public UserEntity register(UserEntity userEntity) {
         try {
             if (repository.findByEmail(userEntity.getEmail()).orElse(null) != null) {
                 BaseException baseException =   BaseException.builder()
-                                                        .message(getMessage("smartjob.api.auth.use-exists.error"))
+                                                        .message(this.utilApi.getMessage("smartjob.api.auth.use-exists.error"))
                                                         .module(nameModule())
                                                         .exception(null)
                                                         .build();

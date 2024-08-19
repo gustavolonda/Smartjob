@@ -31,6 +31,6 @@ backend/auth-service/nbbuild/
 backend/auth-service/dist/
 backend/auth-service/nbdist/
 backend/auth-service/.nb-gradle/
-
+backend/auth-service/~/
 ### VS Code ###
 .vscode/

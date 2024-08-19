@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 
+import com.smartjob.authservice.commons.api.domains.data.UtilApi;
 import com.smartjob.authservice.commons.api.domains.exception.BaseException;
 import com.smartjob.authservice.commons.api.domains.data.IEndPointService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -14,11 +16,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
-import static com.smartjob.authservice.commons.api.domains.data.UtilApi.getMessage;
-
 @Service
 @Slf4j
 public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T, ID> {
+    @Autowired
+    public  UtilApi utilApi;
 
     @Override
     @SneakyThrows
@@ -36,7 +38,7 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
             }
             else {
                 BaseException baseException=   BaseException.builder()
-                        .message(getMessage("smartjob.api.create.error"))
+                        .message(utilApi.getMessage("smartjob.api.create.error"))
                         .module(nameModule())
                         .exception(e)
                         .build();
@@ -55,7 +57,7 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
             return this.getDao().saveAll(entityList);
         }catch (Exception e) {
             BaseException baseException=   BaseException.builder()
-                    .message(getMessage("smartjob.api.create-list.error"))
+                    .message(utilApi.getMessage("smartjob.api.create-list.error"))
                     .module(nameModule())
                     .exception(e)
                     .build();
@@ -71,7 +73,7 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
             return getDao().save(entity);
         }catch (Exception e) {
             BaseException baseException=   BaseException.builder()
-                    .message(getMessage("smartjob.api.update.error"))
+                    .message(utilApi.getMessage("smartjob.api.update.error"))
                     .module(nameModule())
                     .exception(e)
                     .build();
@@ -90,7 +92,7 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
 
         }catch (Exception e) {
             BaseException baseException=   BaseException.builder()
-                    .message(getMessage("smartjob.api.delete.error"))
+                    .message(utilApi.getMessage("smartjob.api.delete.error"))
                     .module(nameModule())
                     .exception(e)
                     .build();
@@ -107,7 +109,7 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
             return obj.orElse(null);
         }catch (Exception e) {
             BaseException baseException = BaseException.builder()
-                    .message(getMessage("smartjob.api.read.error"))
+                    .message(utilApi.getMessage("smartjob.api.read.error"))
                     .module(nameModule())
                     .exception(e)
                     .build();
@@ -123,7 +125,7 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
             return new ArrayList<>(getDao().findAll());
         }catch (Exception e) {
             BaseException baseException=   BaseException.builder()
-                    .message(getMessage("smartjob.api.read-list.error"))
+                    .message(utilApi.getMessage("smartjob.api.read-list.error"))
                     .module(nameModule())
                     .exception(e)
                     .build();

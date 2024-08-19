@@ -28,16 +28,16 @@ public class UtilApi {
 
     public static final Pattern VALID_NON_EMPTY = Pattern.compile( ".*\\S.*", Pattern.CASE_INSENSITIVE);
 
-    @Bean
-    public MessageSource UtilApi() {
+    @Autowired
+    public MessageSource estaticMessageSource() {
         estaticMessageSource = this.messageSource;
         return estaticMessageSource;
     }
 
     ;
 
-    public static String getMessage(String property) {
-        return estaticMessageSource.getMessage(property, null, Locale.getDefault());
+    public  String getMessage(String property) {
+        return messageSource.getMessage(property, null, Locale.getDefault());
     }
 
     public static Date dateAddMinutes(Date date, int minutes) {

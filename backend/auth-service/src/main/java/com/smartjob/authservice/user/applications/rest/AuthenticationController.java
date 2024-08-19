@@ -1,6 +1,7 @@
 package com.smartjob.authservice.user.applications.rest;
 
 import com.smartjob.authservice.commons.api.domains.data.ResponseBase;
+import com.smartjob.authservice.commons.api.domains.data.UtilApi;
 import com.smartjob.authservice.commons.api.domains.exception.ErrorResponse;
 import com.smartjob.authservice.commons.api.domains.exception.ResponseException;
 import com.smartjob.authservice.user.domains.data.UserDto;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.smartjob.authservice.commons.api.domains.data.StatusResponse.OK;
-import static com.smartjob.authservice.commons.api.domains.data.UtilApi.getMessage;
 import static com.smartjob.authservice.user.infraestructure.configs.Constants.AUTH_URL;
 import static com.smartjob.authservice.user.infraestructure.configs.Constants.REGISTER_URL;
 
@@ -32,6 +32,8 @@ public class AuthenticationController {
     UserService service;
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    UtilApi utilApi;
 
     @Operation(
             summary = "Registar un usuario",
@@ -48,7 +50,7 @@ public class AuthenticationController {
         return ResponseEntity.ok()
                 .body(ResponseBase.builder()
                         .status(OK.getValue())
-                        .message(getMessage("smartjob.api.response.ok"))
+                        .message(utilApi.getMessage("smartjob.api.response.ok"))
                         .result(userMapper.toUserDto(
                                         service.register(userMapper.toUserEntity(userDto))
                                         )

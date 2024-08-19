@@ -1,5 +1,6 @@
 package com.smartjob.authservice.user.domains.services;
 
+import com.smartjob.authservice.commons.api.domains.data.UtilApi;
 import com.smartjob.authservice.commons.api.domains.exception.BaseException;
 import com.smartjob.authservice.user.infraestructure.entities.UserEntity;
 
@@ -12,22 +13,22 @@ import static java.lang.Boolean.TRUE;
 
 public class UserValidate {
     public static final String TAG = UserValidate.class.getSimpleName();
-    public static BaseException userFieldValidationError(UserEntity userEntity){
+    public static BaseException userFieldValidationError(UserEntity userEntity, UtilApi utilApi){
         boolean isError = FALSE;
         String message= new String();
         if(!emailValidate(userEntity.getEmail())){
             isError = TRUE;
-            message = getMessage("smartjob.api.auth.email.error");
+            message = utilApi.getMessage("smartjob.api.auth.email.error");
         }
 
         if(!passwordValidate(userEntity.getPassword())){
             isError = TRUE;
-            message = getMessage("smartjob.api.auth.password.error");
+            message = utilApi.getMessage("smartjob.api.auth.password.error");
         }
 
         if(!nameValidate(userEntity.getName())){
             isError = TRUE;
-            message = getMessage("smartjob.api.auth.name.error");
+            message = utilApi.getMessage("smartjob.api.auth.name.error");
         }
 
         if (isError){

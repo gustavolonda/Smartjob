@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ResponseException{
+public class ResponseException extends Exception {
     private String message;
 
     public static ResponseException responseExceptionCreate( Exception exception) {
