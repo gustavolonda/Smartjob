@@ -16,9 +16,9 @@ import static com.smartjob.authservice.commons.api.domains.data.StatusResponse.O
 import static com.smartjob.authservice.commons.api.domains.data.UtilApi.getMessage;
 import static com.smartjob.authservice.user.infraestructure.configs.Constants.USER_URL;
 
-@RestController
-@RequestMapping(path = USER_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-@CrossOrigin(origins = "*")
+//@RestController
+//@RequestMapping(path = USER_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+//@CrossOrigin(origins = "*")
 public class UserController {
     @Autowired
     UserService service;

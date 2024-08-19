@@ -19,9 +19,9 @@ import static com.smartjob.authservice.commons.api.domains.data.UtilApi.getMessa
 import static com.smartjob.authservice.phone.infraestructure.configs.Constants.PHONE_URL;
 
 
-@RestController
-@RequestMapping(path = PHONE_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-@CrossOrigin(origins = "*")
+//@RestController
+//@RequestMapping(path = PHONE_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+//@CrossOrigin(origins = "*")
 public class PhoneController {
     @Autowired
     PhoneService service;
