@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "01fd243f-f23c-44ae-a03d-af45ce6526d6",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7108523"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juan Lopez\",\n            \"email\": \"juanlopez@gmail.com\",\n            \"password\": \"sdfdsfdsfewfre\",\n            \"phones\": [ {\n                            \"number\":\"0992378567\",\n                            \"cityCode\":\"23\",\n                            \"countryCode\":\"593\"\n                        } \n                    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8095/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8095",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
