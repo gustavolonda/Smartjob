@@ -1,6 +1,6 @@
 package com.smartjob.authservice.phone.domains.services;
 
-import com.smartjob.authservice.commons.api.domains.data.BaseException;
+import com.smartjob.authservice.commons.api.domains.exception.BaseException;
 import com.smartjob.authservice.commons.api.domains.services.EndPointServiceImpl;
 import com.smartjob.authservice.phone.infraestructure.entities.PhoneEntity;
 import com.smartjob.authservice.phone.infraestructure.repositories.PhoneRepository;

@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -21,6 +22,11 @@ public class UtilApi {
     private static MessageSource estaticMessageSource;
 
     public static final String FORMAT_DATE = "dd-MM-yyyy HH:mm a z";
+
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    public static final Pattern VALID_NON_EMPTY = Pattern.compile( ".*\\S.*", Pattern.CASE_INSENSITIVE);
 
     @Bean
     public MessageSource UtilApi() {
