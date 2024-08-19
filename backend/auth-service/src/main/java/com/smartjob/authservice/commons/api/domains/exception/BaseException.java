@@ -1,4 +1,4 @@
-package com.smartjob.authservice.commons.api.domains.data;
+package com.smartjob.authservice.commons.api.domains.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -26,6 +26,7 @@ public class UserDto {
     @JsonFormat(shape = STRING, pattern = FORMAT_DATE)
     private List<PhoneDto> phones;
     private String token;
+    @JsonFormat(shape = STRING, pattern = FORMAT_DATE)
     private Date lastLogin;
     @JsonFormat(shape = STRING, pattern = FORMAT_DATE)
     private Date created;
