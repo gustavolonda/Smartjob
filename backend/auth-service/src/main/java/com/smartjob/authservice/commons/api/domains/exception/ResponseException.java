@@ -11,13 +11,20 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ResponseException extends Exception {
+public class ResponseException {
     private String message;
 
     public static ResponseException responseExceptionCreate( Exception exception) {
 
         return ResponseException.builder()
                 .message(exception.getMessage())
+                .build();
+    }
+
+    public static ResponseException responseExceptionCreate( String message) {
+
+        return ResponseException.builder()
+                .message(message)
                 .build();
     }
 

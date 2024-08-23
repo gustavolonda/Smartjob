@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +47,7 @@ public class AuthenticationController {
             @ApiResponse(responseCode = "503", content = { @Content(schema = @Schema(implementation = ResponseException.class), mediaType = "application/json") })
     })
     @PostMapping(REGISTER_URL)
-    public ResponseEntity<?> register(@RequestBody UserDto userDto) {
+    public ResponseEntity<?> register(@Valid @RequestBody UserDto userDto) {
         return ResponseEntity.ok()
                 .body(ResponseBase.builder()
                         .status(OK.getValue())

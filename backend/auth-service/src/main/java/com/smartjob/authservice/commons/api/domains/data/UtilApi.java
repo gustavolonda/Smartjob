@@ -25,6 +25,19 @@ public class UtilApi {
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+    public static final String EMAIL_PATTERN = "[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})";
+
+    /*
+    * # start-of-string
+    * # a digit must occur at least once
+    * # a lower case letter must occur at least once
+    * # a lower case letter must occur at least once
+    * # a special character must occur at least once
+    * # no whitespace allowed in the entire string
+    # end-of-string
+    * */
+    public static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
 
     public static final Pattern VALID_NON_EMPTY = Pattern.compile( ".*\\S.*", Pattern.CASE_INSENSITIVE);
 

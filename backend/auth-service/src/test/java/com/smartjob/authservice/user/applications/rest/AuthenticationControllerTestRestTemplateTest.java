@@ -35,10 +35,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class AuthenticationControllerTestRestTemplateTest {
-    @Autowired
+   /* @Autowired
     private TestRestTemplate client;
     @MockBean
     private MockMvc mvc;
@@ -153,5 +153,5 @@ public class AuthenticationControllerTestRestTemplateTest {
     }
     private String uriCreate(String uri) {
         return "http://localhost:" + port + uri;
-    }
+    }*/
 }

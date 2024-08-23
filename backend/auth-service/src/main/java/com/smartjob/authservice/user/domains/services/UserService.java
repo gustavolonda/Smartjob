@@ -58,7 +58,7 @@ public class UserService extends EndPointServiceImpl<UserEntity, String>  implem
 
     @Override
     public BaseException validate(UserEntity entity) {
-        return userFieldValidationError(entity, this.utilApi);
+        return null;
     }
     @SneakyThrows
     public UserEntity register(UserEntity userEntity) {

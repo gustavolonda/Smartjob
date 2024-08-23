@@ -3,6 +3,7 @@ package com.smartjob.authservice.user.infraestructure.entities;
 import com.smartjob.authservice.commons.api.infraestructure.entities.BaseEntity;
 import com.smartjob.authservice.phone.infraestructure.entities.PhoneEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

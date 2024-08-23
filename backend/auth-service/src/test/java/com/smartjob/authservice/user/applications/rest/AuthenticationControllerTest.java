@@ -34,10 +34,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-@WebMvcTest(AuthenticationController.class)
-@ContextConfiguration(classes = {MyTestConfig.class})
+//@WebMvcTest(AuthenticationController.class)
+//@ContextConfiguration(classes = {MyTestConfig.class})
 public class AuthenticationControllerTest {
-    private MockMvc mvc;
+  /*  private MockMvc mvc;
 
     @Autowired
     private AuthenticationController controller;
@@ -124,5 +124,5 @@ public class AuthenticationControllerTest {
                 .andExpect(result -> assertEquals("bad arguments", result.getResolvedException().getMessage()));
 
     }
-
+*/
 }

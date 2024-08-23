@@ -13,7 +13,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class ErrorResponse {
-    private String code ;
     private Object errors ;
 
 }
